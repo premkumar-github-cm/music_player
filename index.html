@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://kit.fontawesome.com/7367208505.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0
+        }
+
+        .container {
+            box-sizing: border-box;
+            width: 100%;
+            height: 100vh;
+            background-color: black;
+            position: relative;
+            color: white;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: "";
+            position: absolute;
+            background-color: crimson;
+            width: 100%;
+            height: 250px;
+            border-radius: 0 0 50% 50%;
+        }
+
+        .name p {
+            width: 50%;
+            margin: auto;
+            text-align: center;
+            margin-bottom: 20px;
+            margin-top: 10px;
+        }
+
+        .section1 {
+            width: 100%;
+            height: auto;
+            box-sizing: border-box;
+            position: relative;
+            text-align: center;
+            padding-top: 5%;
+            overflow: hidden;
+        }
+
+        .section1 .img {
+            border-radius: 20px;
+            margin: auto;
+            width: 60%;
+            height: 200px;
+            border: 1px solid black;
+            background-color: burlywood;
+            background-image: url('music.jpg');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .timeline {
+            width: 70%;
+            display: flex;
+            margin: auto;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .time {
+            width: 200px;
+            height: 3px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+            position: relative;
+        }
+
+        .circle {
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            border-radius: 50%;
+            position: relative;
+            top: -4px;
+            left: 0px
+        }
+
+        .controls {
+            width: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            padding: 3% 0;
+            position: relative;
+            height: 50px;
+            text-align: center;
+        }
+
+        #play_pause {
+            width: 60px;
+            border-radius: 50%;
+            height: 60px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            border: none;
+            outline: none;
+            background-color: red;
+        }
+
+        #play_pause img {
+            width: 30px;
+            position: absolute;
+        }
+
+        .pauseButton {
+            position: absolute;
+            visibility: hidden;
+            ;
+        }
+
+        .backward {
+            background-color: black;
+            border: none;
+            outline: none;
+            position: relative;
+            left: -30px;
+        }
+
+        .backward img {
+            width: 30px
+        }
+
+        .forward {
+            background-color: black;
+            border: none;
+            outline: none;
+            position: relative;
+            left: 30px;
+        }
+
+        .forward img {
+            transform: rotate(180deg);
+            width: 30px
+        }
+
+        .options {
+            width: 100%;
+            height: 100px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 5%;
+            padding-bottom: 0;
+        }
+
+        .options a {
+            color: white;
+            font-size: 25px;
+            margin: 0 6%
+        }
+        .options button {
+            color: white;
+            background-color: black;
+            border:none;
+            font-size: 25px;
+            margin: 0 6%
+        }
+        button:focus{
+            outline: none;
+        }
+
+        .bass {
+            width: 100%;
+            height: 149px;
+            box-sizing: border-box;
+            display: flex;
+        }
+
+        .bass11 {
+            width: 10%;
+            height: 149px;
+            box-sizing: border-box;
+            position: relative;
+            animation: none;
+        }
+
+        .bass1 {
+            background-color: #16c79a;
+        }
+
+        .bass2 {
+            background-color: #c70039;
+            animation-delay: .2s;
+        }
+
+        .bass3 {
+            background-color: #c0e218;
+            animation-delay: .4s;
+        }
+
+        .bass4 {
+            background-color: #583d72;
+            animation-delay: .6s;
+        }
+
+        .bass5 {
+            background-color: #db6400;
+
+            animation-delay: .8s;
+        }
+
+        @keyframes up-down {
+            0% {
+                top: 129px
+            }
+
+            50% {
+                top: 0
+            }
+
+            100% {
+                top: 129px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="section1">
+
+
+            <div class="name">
+                <p style="font-size:20px">Enna Sona </p>
+            </div>
+            <div class="img">
+
+            </div>
+
+
+            <div class="timeline">
+                <p style="margin-right: 20px;">0:00</p>
+                <div class="time">
+                    <div class="circle"></div>
+                </div>
+                <p style="margin-left: 20px;">3:26</p>
+            </div>
+
+
+            <div class="controls">
+                <button class="backward" onclick="plusMusic(-1)"><img src="backward.png"></button>
+
+                <button id="play_pause">
+                    <img src="playButton.png" class="playButton">
+                    <img src="pauseButton.png" class="pauseButton">
+                </button>
+
+                <button class="forward" onclick="plusMusic(1)"><img src="backward.png"></button>
+
+            </div>
+
+            <div class="options">
+                <button class="heart" ><i onclick="red()" class="far fa-heart"></i></button>
+                <a href="" class="playList"><i class="fas fa-list"></i></a>
+                <a href="" class="download"><i class="fas fa-chevron-circle-down"></i></a>
+                <a href="" class="callTune"><i class="fas fa-phone-volume"></i></a>
+                <a href="" class="callTune"><i class="fas fa-ellipsis-v"></i></a>
+            </div>
+
+            <div class="bass">
+                <div class="bass1 bass11"></div>
+                <div class="bass2 bass11"></div>
+                <div class="bass3 bass11"></div>
+                <div class="bass4 bass11"></div>
+                <div class="bass5 bass11"></div>
+                <div class="bass1 bass11"></div>
+                <div class="bass2 bass11"></div>
+                <div class="bass3 bass11"></div>
+                <div class="bass4 bass11"></div>
+                <div class="bass5 bass11"></div>
+            </div>
+
+            <div class="songs">
+
+                <div class="song">
+                    <audio class="audio" id="audio1">
+                        <source src="jaati da crush.mp3">
+                    </audio>
+                </div>
+
+                <div class="song">
+                    <audio class="audio" id="audio2">
+                        <source src="enna sona.mp3">
+                    </audio>
+                </div>
+
+                <div class="song">
+                    <audio class="audio" id="audio3">
+                        <source src="enni soni.mp3">
+                    </audio>
+                </div>
+
+                <div class="song">
+                    <audio class="audio" id="audio4">
+                        <source src="scam1992.mp3">
+                    </audio>
+                </div>
+
+                <div class="song">
+                    <audio class="audio" id="audio5">
+                        <source src="Mirzapur - Intro Theme Song.mp3">
+                    </audio>
+                </div>
+
+                <div class="song">
+                    <audio class="audio" id="audio6">
+                        <source src="Naach Meri Rani Guru Randhawa.mp3">
+                    </audio>
+                </div>
+
+                <div class="song">
+                    <audio class="audio" id="audio7">
+                        <source src="Guru Randhawa High Rated Gabru.mp3">
+                    </audio>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        var playpause = document.getElementById("play_pause");
+        var playButton = document.getElementsByClassName('playButton')[0];
+        var pauseButton = document.getElementsByClassName('pauseButton')[0];
+        var audio2 = document.getElementById("audio2");
+        var bass1 = document.getElementsByClassName('bass1')[0];
+        var bass1_1 = document.getElementsByClassName('bass1')[1];
+
+        var bass2 = document.getElementsByClassName('bass2')[0];
+        var bass2_1 = document.getElementsByClassName('bass2')[1];
+
+        var bass3 = document.getElementsByClassName('bass3')[0];
+        var bass3_1 = document.getElementsByClassName('bass3')[1];
+
+        var bass4 = document.getElementsByClassName('bass4')[0];
+        var bass4_1 = document.getElementsByClassName('bass4')[1];
+
+        var bass5 = document.getElementsByClassName('bass5')[0];
+        var bass5_1 = document.getElementsByClassName('bass5')[1];
+
+        playButton.addEventListener('click', function () {
+            audio2.play();
+            playButton.style.visibility = "hidden";
+            pauseButton.style.visibility = "visible";
+            bass1.style.animation = "up-down 2s linear infinite";
+            bass1.style.animationTimingFunction = "ease-in-out";
+            bass1_1.style.animation = "up-down 2s linear infinite";
+            bass1_1.style.animationTimingFunction = "ease-in-out";
+
+            bass2.style.animation = "up-down 2s linear infinite";
+            bass2.style.animationTimingFunction = "ease-in-out";
+            bass2.style.animationDelay = "0.2s"
+            bass2_1.style.animation = "up-down 2s linear infinite";
+            bass2_1.style.animationTimingFunction = "ease-in-out";
+            bass2_1.style.animationDelay = "0.2s"
+
+            bass3.style.animation = "up-down 2s linear infinite";
+            bass3.style.animationTimingFunction = "ease-in-out";
+            bass3.style.animationDelay = "0.4s"
+            bass3_1.style.animation = "up-down 2s linear infinite";
+            bass3_1.style.animationTimingFunction = "ease-in-out";
+            bass3_1.style.animationDelay = "0.4s"
+
+            bass4.style.animation = "up-down 2s linear infinite";
+            bass4.style.animationTimingFunction = "ease-in-out";
+            bass4.style.animationDelay = "0.6s"
+            bass4_1.style.animation = "up-down 2s linear infinite";
+            bass4_1.style.animationTimingFunction = "ease-in-out";
+            bass4_1.style.animationDelay = "0.6s"
+
+            bass5.style.animation = "up-down 2s linear infinite";
+            bass5.style.animationTimingFunction = "ease-in-out";
+            bass5.style.animationDelay = "0.8s"
+            bass5_1.style.animation = "up-down 2s linear infinite";
+            bass5_1.style.animationTimingFunction = "ease-in-out";
+            bass5_1.style.animationDelay = "0.8s"
+        })
+
+        pauseButton.addEventListener('click', function () {
+            audio2.pause();
+            playButton.style.visibility = "visible";
+            pauseButton.style.visibility = "hidden";
+            bass1.style.animation = "none";
+            bass1_1.style.animation = "none"
+
+            bass2.style.animation = "none";
+            bass2_1.style.animation = "none";
+
+            bass3.style.animation = "none";
+            bass3_1.style.animation = "none";
+
+            bass4.style.animation = "none";
+            bass4_1.style.animation = "none"
+
+            bass5.style.animation = "none";
+            bass5_1.style.animation = "none"
+
+        })
+        function red(){
+            var heart=document.getElementsByClassName('heart')[0];
+            heart.style.color="red"
+        }
+        
+        
+    </script>
+</body>
+
+</html>
